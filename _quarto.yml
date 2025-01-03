@@ -1,0 +1,69 @@
+project:
+  type: website
+  output-dir: docs
+  post-render:
+    - _post_fix_figures.py
+
+website:
+  title: "DSAN 5500"
+  favicon: favicon.png
+  sidebar:
+    title: "DSAN 5500: Data Structures, Objects, and Algorithms in Python"
+    id: mainnav
+    contents:
+      - text: "<i class='bi bi-house pe-1'></i> Home"
+        href: index.qmd
+      - text: "Syllabus"
+        href: syllabus.qmd
+      - text: "Resources"
+        href: resources.qmd
+      - text: "Assignments"
+        href: "assignments/index.qmd"
+      - text: "Final Project"
+        href: final.qmd
+      - text: "Extra Writeups"
+        href: "writeups/index.qmd"
+      - text: "Recordings"
+        href: recordings/index.qmd
+      - "---"
+      - text: "Week 1: {{< var w01.date-md >}}"
+        href: "w01/index.qmd"
+      - text: "Week 2: {{< var w02.date-md >}}"
+        href: "w02/index.qmd"
+      - text: "Week 3: {{< var w03.date-md >}}"
+        href: "w03/index.qmd"
+      - text: "Week 4: {{< var w04.date-md >}}"
+        href: "w04/index.qmd"
+      - text: "Week 5: {{< var w05.date-md >}}"
+        href: "w05/index.qmd"
+      - text: "Week 6: {{< var w06.date-md >}}"
+        href: "w06/index.qmd"
+      - text: "Week 7: {{< var w07.date-md >}}"
+        href: "w07/index.qmd"
+      - text: "Week 8: {{< var w08.date-md >}}"
+        href: "w08/index.qmd"
+      - text: "Week 9: {{< var w09.date-md >}}"
+        href: "w09/index.qmd"
+      - text: "Week 10: {{< var w10.date-md >}}"
+        href: "w10/index.qmd"
+      - text: "Week 11: {{< var w11.date-md >}}"
+        href: "w11/index.qmd"
+      - text: "Week 12: {{< var w12.date-md >}}"
+        href: "w12/index.qmd"
+      # - text: "Week 13: {{< var w13.date-md >}}"
+      #   href: "w13/index.qmd"
+      # - text: "Week 14: {{< var w14.date-md >}}"
+      #   href: "w14/index.qmd"
+      - "---"
+      - text: "<a href='https://classroom.google.com/c/NjM5MzE2MTE4NTgx?cjc=r4pzugi' target='_blank'>Google Classroom <i class='bi bi-box-arrow-up-right ps-1'></i></a>"
+      - text: "<a href='https://chat.google.com/room/AAAAy61nvA8?cls=7' target='_blank'>Google Spaces <i class='bi bi-box-arrow-up-right ps-1'></i></a>"
+      - text: "<a href='https://georgetown.instructure.com/courses/183034' target='_blank'>Canvas <i class='bi bi-box-arrow-up-right ps-1'></i></a>"
+      
+
+format:
+  html:
+    theme: default
+    css: styles.css
+    toc: true
+    include-in-header:
+      text: "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'><script src='https://code.jquery.com/jquery-3.7.1.slim.min.js'></script><script src='/jjcustom.js'></script>"

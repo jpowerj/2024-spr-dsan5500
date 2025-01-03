@@ -1,0 +1,85 @@
+w01:
+  weeknum: 1
+  title: "Course Intro and Motivation"
+  footer: "Course Intro and Motivation"
+  date-md: "Jan 10"
+w02:
+  weeknum: 2
+  title: "Software Design Patterns and Object-Oriented Programming"
+  footer: "Software Design Patterns and OOP"
+  date-md: "Jan 22"
+w03:
+  weeknum: 3
+  title: "Data Structures and Computational Complexity"
+  footer: "Data Structures and Computational Complexity"
+  date-md: "Jan 29"
+w04:
+  weeknum: 4
+  title: "Heaps, Stacks, Hash Maps"
+  footer: "Heaps, Stacks, Hash Maps"
+  date-md: "Feb 5"
+w05:
+  weeknum: 5
+  title: "Binary Search Trees"
+  footer: "Binary Search Trees"
+  date-md: "Feb 12"
+w06:
+  weeknum: 6
+  title: "Code Examples and Midterm Prep"
+  footer: "Code Examples and Midterm Prep"
+  date-md: "Feb 20"
+w07:
+  weeknum: 7
+  title: "In-Class Midterm"
+  footer: "In-Class Midterm"
+  date-md: "Feb 26"
+w08:
+  weeknum: 8
+  title: "Data Validation, Data Processing Pipelines"
+  footer: "Data Validation, Pipelines"
+  date-md: "Mar 11"
+w09:
+  weeknum: 9
+  title: "Data Pipeline Orchestration"
+  footer: "Pipeline Orchestration"
+  date-md: "Mar 18"
+w10:
+  weeknum: 10
+  title: "Moving from Serial to Parallel Pipelines"
+  footer: "Moving from Serial to Parallel Pipelines"
+  date-md: "Mar 25"
+w11:
+  weeknum: 11
+  title: "Parallel Pipelines and Map-Reduce"
+  footer: "Parallel Pipelines and Map-Reduce"
+  date-md: "Apr 8"
+w12:
+  weeknum: 12
+  title: "Final Projects, Interfaces"
+  footer: "Final Projects, Interfaces"
+  date-md: "Apr 15"
+w13:
+  weeknum: 13
+  title: "Applications in NLP"
+  footer: "NLP Applications"
+  date-md: "Apr 22"
+w14:
+  weeknum: 14
+  title: "Applications in Bioinformatics"
+  footer: "Applications in Bioinformatics"
+  date-md: "Apr 29"
+hw1:
+  title: "Python Fundamentals"
+  date-md: "Feb 2 (Friday), 11:59pm EST"
+hw2:
+  title: "Data Structures, Algorithms, and Complexity"
+  date-md: "Mar 1 (Friday), 5:59pm EST"
+hw3:
+  title: "Data-Processing Pipelines"
+  date-md: "Mar 22 (Friday), 5:59pm EDT"
+hw4:
+  title: "Parallel Computing"
+  date-md: "Apr 19 (Friday), 5:59pm EDT"
+final:
+  title: "Final Project"
+  date-md: "May 3 (Friday), 5:59pm EDT"

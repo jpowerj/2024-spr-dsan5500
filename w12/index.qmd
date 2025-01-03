@@ -1,0 +1,231 @@
+---
+title: "Week 12: Final Projects, Interfaces"
+subtitle: "*DSAN 5500: Data Structures, Objects, and Algorithms in Python*"
+date: "Monday, April 15, 2024"
+date-format: full
+author: "Jeff Jacobs"
+institute: "<a href='mailto:jj1088@georgetown.edu' target='_blank'>`jj1088@georgetown.edu`</a>"
+lecnum: 12
+bibliography: "../_DSAN5500.bib"
+categories:
+  - "Class Sessions"
+format:
+  revealjs:
+    df-print: kable
+    output-file: "slides.html"
+    footer: "DSAN 5500 Week 12: {{< var w12.footer >}}"
+    echo: true
+    code-fold: show
+    scrollable: true
+    slide-number: true
+    html-math-method: mathjax
+    include-in-header:
+      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>"
+    theme: ["../_jjslides.scss"]
+    simplemenu:
+      flat: true
+      barhtml:
+        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+      scale: 0.5
+    revealjs-plugins:
+      - simplemenu
+  html:
+    df-print: kable
+    output-file: "index.html"
+    echo: true
+    code-fold: show
+    html-math-method: mathjax
+---
+
+::: {.content-visible unless-format="revealjs"}
+
+<center>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new window &rarr;</a>
+</center>
+
+:::
+
+# Making Final Projects Less Scary! {data-stack-name="Final Projects"}
+
+## How Do I Pick A Topic?
+
+* I know that "whatever is interesting to you" can be way overly-vague!
+* So, one approach is: imagine yourself in a job interview for your dream job, and they bring up DSAN 5450: "Interesting, what did you do in that class?" 
+* [Insert final project elevator pitch] "Wow, that's such a cool project, we really want someone who can [say] take a data-driven approach to a policy question like that. You're hired!"
+* (Jeff gets a commission: 10% of your salary)
+
+## Getting From Here to There
+
+```{=html}
+<style>
+.honk-honk {
+  font-size: 180% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+```
+
+* [**Minimum Viable Product**]{.honk-honk} (**MVP**) 
+* $\leadsto$ Final Product (but... Hofstadter's Law)
+
+::: {.callout-note title="<i class='bi bi-info-circle pe-1'></i> Hofstadter's Law (Paraphrase)" icon="false"}
+
+The pieces of your DSAN final project will take longer than you expect, even if you take Hofstadter's Law into account
+
+:::
+
+# The Options
+
+1. A Deeper Dive
+2. Fixing an Issue
+3. Exploring Applications
+4. Proving Correctness and/or Efficiency
+5. Building an ETL Pipeline
+
+* (New examples on next 5 slides!)
+
+## 1. A Deeper Dive
+
+* **Example 1.3**: Creating an interactive visualization (using <a href='https://streamlit.io/' target='_blank'>Streamlit</a>, for example) of a data structure or algorithm. (Streamlit demo coming in next section of slides!)
+
+## 2. Fixing an Issue
+
+* **Example 2.2**: As you saw in the Midterm, hash tables "degenerate" from (approximate) $O(1)$ efficiency to $O(\log_2(n))$ efficiency if the **hashing function** we use is not **efficient** or not <a href='https://en.wikipedia.org/wiki/Collision_resistance' target='_blank'>**collision-resistant**</a>.
+* So, your project could be to:
+  * Explore and summarize how efficient and collision-resistant hash functions work, and then
+  * Implement one such hash function in Python.
+
+## 3. Exploring Applications
+
+* **Example 3.2**: We learned Breadth-First Search (BFS) and Depth-First Search (DFS) in somewhat of a hurry, as a way to traverse over the nodes in a Binary Search Tree, but they both have many more exciting applications!
+* For example, if you're interested in **web scraping**, you could adapt the HW2 code to create a polymorphic web-scraper:
+  * Each **node** is a webpage
+  * Processing a node means adding each link in that page to the `ThingContainer`.
+
+## 4. Proving Things {.crunch-title .crunch-ul .math-95 .crunch-li}
+
+* **Example 4.2**: We were able to gradually improve **retrieval**:
+
+| Linear | | Logarithmic | | Constant |
+| - | - | - | - | - |
+| `LinkedList`<br>$O(n)$ | $\rightarrow$ | `BST`<br>$O(\log_2(n))$ | $\rightarrow$ | `HashTable`<br>$O(1 + \varepsilon)$ |
+
+: {tbl-colwidths="[30,5,30,5,30]"}
+
+* But then for <b>search</b>, something was missing 🧐:
+
+| Linear | | Logarithmic | | Constant |
+| - | - | - | - | - |
+| [Insertion-Sort]{.alg}<br>$O(n^2)$ | $\rightarrow$ | [Merge-Sort]{.alg}<br>$O(n\log_2(n))$ | $\rightarrow$ | ??? |
+
+: {tbl-colwidths="[32,5,30,5,28]"}
+
+* Prove that it's **not possible** to make the additional "jump" to **constant**-time search in $O(n)$, except in very special cases.
+
+## 5. Building an ETL Pipeline
+
+* **Example 5.2**: If there are particular <b>APIs</b> and <b>Database</b> solutions that you've been hoping to explore, now's your chance! Create an ETL pipeline which <b>E</b>xtracts data from the API, <b>T</b>ransforms it in some interesting way, then <b>L</b>oads it into (for example) an SQL or MongoDB database.
+
+# Nuts and Bolts for Projects
+
+## Fake Data!
+
+* When **developing** (as opposed to **deploying**) your projects, **real data** can add additional complexity **beyond the MVP!**: It might cost \$\$\$, it might be rate-limited, or they might catch you scraping their website and ban you ☠️
+  * (Also: might be too complicated to handle in the time available, even if you use **Prefect** 😉)
+* Instead, use <a href='https://faker.readthedocs.io/en/master/' target='_blank'>Faker</a>!
+* In particular, see <a href='https://faker.readthedocs.io/en/stable/providers.html' target='_blank'>Standard Providers</a> page for listing of all the types of data you can fake!
+
+## Visual Interfaces
+
+* A good number of you are interested in **visualizing** or allowing **interaction with** the structures/algorithms from class
+* One quick way to allow this: <a href='https://streamlit.io/' target='_blank'>**Streamlit!**</a>
+* However, Streamlit's "default" is *form*-based interaction (form in sidebar $\rightarrow$ results in main panel); a bit more work required to make **everything** interactive
+* <a href='https://linkedlist.streamlit.app/' target='_blank'>Demo</a> to see what I mean, <a href='https://github.com/jpowerj/streamlit-linkedlist' target='_blank'>code</a> that you can steal!
+
+# Parallel Processing in Python $\rightarrow$ Prefect {data-stack-name="Parallel Prefect"}
+
+## A Reminder (W10) {.smaller}
+
+* Humans are **not** capable of true multitasking! In CS terms, this would be called **multiprocessing** (more on this later)
+* We **are** capable, however, of various modes of **concurrency**!
+
+| | Multithreading | Asynchronous Execution |
+| - | - | - |
+| **Unconsciously**<br>(you do it already, "naturally") | Focus on **one** speaker within a loud room, with tons of other conversations entering your ears | Put something in oven, set alarm, go do something else, take out of oven once alarm goes off |
+| **Consciously**<br>(you can do it with effort/practice) | Pat head (up and down) and rub stomach (circular motion) "simultaneously" | Throw a ball in the air, clap 3 times, catch ball |
+
+## Parallel in Python: The Hard Way
+
+* `threading`
+* `multiprocessing`
+* `asyncio`
+
+## ...Joblib
+
+![](images/all_three.jpg){fig-align="center"}
+
+## In Action {.crunch-title .crunch-details}
+
+```{python}
+#| code-fold: false
+import time
+from sympy.ntheory import factorint
+from joblib import Parallel, delayed
+parallel_runner = Parallel(n_jobs=4)
+start, end = 500, 580
+def find_prime_factors(num):
+  time.sleep(.01)
+  return factorint(num, multiple=True)
+disp_time = lambda start, end: print('{:.4f} s'.format(end - start))
+```
+
+::: {.columns}
+::: {.column width="50%"}
+
+```{python}
+serial_start = time.time()
+result = [
+  (i,find_prime_factors(i))
+  for i in range(start, end+1)
+]
+serial_end = time.time()
+disp_time(serial_start, serial_end)
+```
+
+:::
+::: {.column width="50%"}
+
+```{python}
+par_start = time.time()
+result = parallel_runner(
+  delayed(find_prime_factors)(i)
+  for i in range(start, end+1)
+)
+par_end = time.time()
+disp_time(par_start, par_end)
+```
+
+:::
+:::
+
+## Python $\rightarrow$ Prefect
+
+* Can think of code on prev slide as (implicitly) **submitting** numbers to the `find_prime_factors()` **task**...
+* So, let's make this **explicit** by using Prefect's `@task` annotation!
+* <a href='https://colab.research.google.com/drive/1-3jWN4MEJRvSnp1WfsHJyeubPoG6uRVn?usp=sharing' target='_blank'>Lab Time! <i class='bi bi-box-arrow-up-right ps-1'></i></a>
+
+## HW4
+
+* Do that but for quotes!
+* Scrape (one, and then many) page(s) from the <a href='http://quotes.toscrape.com/' target='_blank'>default interface</a>, **in parallel!**
+
+## References
+
+::: {#refs}
+:::
